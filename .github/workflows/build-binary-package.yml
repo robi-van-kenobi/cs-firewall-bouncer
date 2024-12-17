@@ -29,10 +29,13 @@ jobs:
       with:
         go-version: '1.22'
 
-    - name: Build all platforms
+    - name: Build mips64 platform
       run: |
         # build platform-all first so the .xz vendor file is not removed
-        make platform-all vendor
+        # @see https://discourse.crowdsec.net/t/quick-how-to-for-firewall-bouncer-on-ubiquity-edgerouter/361
+        export GOOS=linux
+        export GOARCH=mips64
+        make
 
     - name: Upload to release
       env:
