@@ -4,7 +4,11 @@ on:
   release:
     types:
     - prereleased
-
+  push:
+    # branches to consider in the event; optional, defaults to all
+    branches:
+      - main
+      
 permissions:
   # Use write for: hub release edit
   contents: write
